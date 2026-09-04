@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron'
+import { host } from '../main/utils/host'
 // import { electronAPI } from '@electron-toolkit/preload'
 
 interface webSearchType {
@@ -8,6 +9,8 @@ interface webSearchType {
 
 // Custom APIs for renderer
 const api = {
+  // base url of the Ollama-compatible server (Ollama, or llmman when LLMMAN_HOST is set)
+  host,
   checkingOllama: (): Promise<boolean> => ipcRenderer.invoke('checkingOllama'),
   checkingBinaries: (): Promise<boolean> => ipcRenderer.invoke('checkingBinaries'),
   checkingBinarySize: (): Promise<boolean> => ipcRenderer.invoke('checkingBinarySize'),

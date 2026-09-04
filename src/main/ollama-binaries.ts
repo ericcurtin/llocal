@@ -4,6 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import { exec } from 'child_process'
 import { downloadDirectory } from '.'
+import { usingLlmman } from './utils/host'
 
 type binary = {
   name: string
@@ -22,6 +23,8 @@ export const binaryNames = {
 }
 
 export function checkOllama(): Promise<boolean> {
+  // llmman users run `llmman serve` themselves; Ollama need not be installed
+  if (usingLlmman) return Promise.resolve(true)
   return new Promise((resolve) => {
     exec('ollama serve', (error) => {
       // if check is true, that means there's an error

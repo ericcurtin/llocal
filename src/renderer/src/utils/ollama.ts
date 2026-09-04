@@ -2,10 +2,11 @@ import { Ollama } from 'ollama/browser'
 import { toast } from 'sonner'
 import { t } from './utils'
 
-export const ollama = new Ollama({ host: 'http://localhost:11434' })
+// Ollama by default, or llmman when LLMMAN_HOST is set (see src/main/utils/host.ts)
+export const ollama = new Ollama({ host: window.api.host })
 // a new ollama client is needed so that when aborting a pull, the on-going chat does not get aborted aswell or vice-versa
 // this is also a hygeine practice, where all functions other than chat should use helper-client just to decouple the use-cases
-export const helperOllama = new Ollama({ host: 'http://localhost:11434' })
+export const helperOllama = new Ollama({ host: window.api.host })
 
 async function installOllama(): Promise<void> {
   toast.info(t("Please be patient with the Ollama installation, there are background process running to get the Ollama installer up and running for you! (Should take about a mintue)"))

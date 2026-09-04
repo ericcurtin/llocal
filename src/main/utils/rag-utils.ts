@@ -7,6 +7,7 @@ import { readdirSync, rm } from 'fs'
 import path from 'path'
 import { documentsDirectory } from '..'
 import i18n from '../lib/localization/i18n'
+import { host } from './host'
 // import { AutoModel } from '@huggingface/transformers'
 
 interface GetFile {
@@ -59,7 +60,7 @@ export async function getSelectedFiles(): Promise<GetFile> {
 
 export const saveVectorDb = async (docs: Document[], saveDirectory: string): Promise<boolean> => {
   const embeddings = new OllamaEmbeddings({
-    baseUrl: 'http://127.0.0.1:11434',
+    baseUrl: host,
     model: 'all-minilm'
   })
 
@@ -154,7 +155,7 @@ export const similaritySearch = async (
   prompt: string,
 ): Promise<RagReturn> => {
   const embeddings = new OllamaEmbeddings({
-    baseUrl: 'http://127.0.0.1:11434',
+    baseUrl: host,
     model: 'all-minilm'
   })
   const allResults = await Promise.all(selectedKnowledge.map(async (db) => {

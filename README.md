@@ -52,6 +52,20 @@ LLocal's builds are unsigned at the moment, meaning there will be an unknown pub
 
 The link to the mac universal build is [this](https://github.com/kartikm7/llocal/releases/download/v1.0.0-beta.5/LLocal-1.0.0-beta.5-mac.zip).
 
+## Using with llmman
+
+[llmman](https://github.com/llmmanorg/llmman) is a local model runner that serves the Ollama API on port 17434. Set `LLMMAN_HOST` (`[host][:port]`, defaults to `localhost:17434`) before launching to use it instead of Ollama:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/llmmanorg/llmman/main/install.sh | sh
+llmman pull gemma4
+llmman pull all-minilm
+llmman serve
+LLMMAN_HOST=127.0.0.1:17434 npm run dev
+```
+
+When `LLMMAN_HOST` is set the Ollama install/serve flow is skipped, so Ollama does not need to be installed.
+
 ## Project Setup
 
 LLocal is an Electron application with React and TypeScript.

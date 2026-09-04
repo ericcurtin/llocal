@@ -2,6 +2,7 @@
 // import DDG from "duck-duck-scrape"
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 import { OllamaEmbeddings } from '@langchain/community/embeddings/ollama'
+import { host } from './utils/host'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
 import {
   search,
@@ -55,7 +56,7 @@ export async function webSearch(searchQuery: string): Promise<webSearchType> {
 
   // generating embeddings for the same
   const embeddings = new OllamaEmbeddings({
-    baseUrl: 'http://127.0.0.1:11434',
+    baseUrl: host,
     model: 'all-minilm'
   })
   const vectorStore = await MemoryVectorStore.fromDocuments(allSplits, embeddings)

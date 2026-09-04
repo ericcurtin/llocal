@@ -1,4 +1,5 @@
 import { OllamaEmbeddings } from '@langchain/community/embeddings/ollama'
+import { host } from './utils/host'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
 // import { load } from 'cheerio'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
@@ -85,7 +86,7 @@ export async function puppeteerSearch(
 
   // generating embeddings for the same
   const embeddings = new OllamaEmbeddings({
-    baseUrl: 'http://127.0.0.1:11434',
+    baseUrl: host,
     model: 'all-minilm'
   })
 

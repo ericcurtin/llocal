@@ -20,6 +20,7 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: {
+      host: string,
       checkingOllama: () => Promise<boolean>,
       checkingBinaries: () => Promise<boolean>,
       checkingBinarySize: () => Promise<boolean>,
