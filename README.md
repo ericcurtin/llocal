@@ -57,7 +57,7 @@ The link to the mac universal build is [this](https://github.com/kartikm7/llocal
 [llmman](https://github.com/llmmanorg/llmman) is a local model runner that serves the Ollama API on port 17434. Set `LLMMAN_HOST` (`[host][:port]`, defaults to `localhost:17434`) before launching to use it instead of Ollama:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/llmmanorg/llmman/main/install.sh | sh
+curl -fsSL https://llmmanorg.github.io/install.sh | sh
 llmman pull gemma4
 llmman pull all-minilm
 llmman serve
