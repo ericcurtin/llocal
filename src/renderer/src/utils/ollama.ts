@@ -2,7 +2,7 @@ import { Ollama } from 'ollama/browser'
 import { toast } from 'sonner'
 import { t } from './utils'
 
-// Ollama by default, or llmman when LLMMAN_HOST is set (see src/main/utils/host.ts)
+// see src/main/utils/host.ts
 export const ollama = new Ollama({ host: window.api.host })
 // a new ollama client is needed so that when aborting a pull, the on-going chat does not get aborted aswell or vice-versa
 // this is also a hygeine practice, where all functions other than chat should use helper-client just to decouple the use-cases

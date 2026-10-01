@@ -9,7 +9,7 @@ interface webSearchType {
 
 // Custom APIs for renderer
 const api = {
-  // base url of the Ollama-compatible server (Ollama, or llmman when LLMMAN_HOST is set)
+  // base url of the Ollama-compatible server
   host,
   checkingOllama: (): Promise<boolean> => ipcRenderer.invoke('checkingOllama'),
   checkingBinaries: (): Promise<boolean> => ipcRenderer.invoke('checkingBinaries'),

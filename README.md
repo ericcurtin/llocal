@@ -52,9 +52,15 @@ LLocal's builds are unsigned at the moment, meaning there will be an unknown pub
 
 The link to the mac universal build is [this](https://github.com/kartikm7/llocal/releases/download/v1.0.0-beta.5/LLocal-1.0.0-beta.5-mac.zip).
 
-## Using with llmman
+## Using a custom server
 
-[llmman](https://github.com/llmmanorg/llmman) is a local model runner that serves the Ollama API on port 17434. Set `LLMMAN_HOST` (`[host][:port]`, defaults to `localhost:17434`) before launching to use it instead of Ollama:
+Any Ollama API-compatible server works. Set `LLOCAL_HOST` (`[host][:port]` or a full `http(s)://` URL, defaults to `localhost:11434`) before launching:
+
+```bash
+LLOCAL_HOST=192.168.1.10:11434 npm run dev
+```
+
+`LLMMAN_HOST` (default port `17434`) is also read, for [llmman](https://github.com/llmmanorg/llmman):
 
 ```bash
 curl -fsSL https://llmmanorg.github.io/install.sh | sh
@@ -64,7 +70,7 @@ llmman serve
 LLMMAN_HOST=127.0.0.1:17434 npm run dev
 ```
 
-When `LLMMAN_HOST` is set the Ollama install/serve flow is skipped, so Ollama does not need to be installed.
+When either is set the Ollama install/serve flow is skipped, so Ollama does not need to be installed.
 
 ## Project Setup
 
