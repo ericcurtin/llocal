@@ -54,7 +54,7 @@ The link to the mac universal build is [this](https://github.com/kartikm7/llocal
 
 ## Using a custom server
 
-Any Ollama API-compatible server works. Set `LLOCAL_HOST` (`[host][:port]` or a full `http(s)://` URL, defaults to `localhost:11434`) before launching:
+Any Ollama API-compatible server works. Set `LLOCAL_HOST` (`[host][:port]` or a full `http(s)://` URL, defaults to `127.0.0.1:11434`) before launching:
 
 ```bash
 LLOCAL_HOST=192.168.1.10:11434 npm run dev
